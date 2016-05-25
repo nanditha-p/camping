@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160525050016) do
 
   create_table "hikes", force: :cascade do |t|
     t.float    "length"
+    t.integer  "time_taken"
     t.integer  "rating"
     t.integer  "difficulty"
     t.string   "name"
