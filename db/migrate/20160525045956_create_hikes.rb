@@ -2,6 +2,7 @@ class CreateHikes < ActiveRecord::Migration
   def change
     create_table :hikes do |t|
       t.float :length
+      t.integer :time
       t.integer :rating
       t.integer :difficulty
       t.string :name

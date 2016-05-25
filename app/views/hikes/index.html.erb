@@ -1,2 +1,36 @@
-Hello Hello
-<%= @hikes %>
+<% if @hikes.present? %>
+
+  <table id="hikes-table" class="table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>National Park</th>
+        <th>Name</th>
+        <th>Length (round trip in Miles)</th>
+        <th>Rating(1-5)</th>
+        <th>Difficulty(1-5)</th>
+        <th>Complete</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @hikes.each do |hike| %>
+      <tr>
+        <td><%= hike.id %></td>
+        <td><%= hike.national_park.name %></td>
+        <td><%= hike.name %></td>
+        <td><%= hike.length %></td>
+        <td><%= hike.rating %></td>
+        <td><%= hike.difficulty %></td>
+        <% if hike.difficulty.present? %>
+          <td>Yes</td>
+        <% else %>
+          <td><%= button_tag 'Complete', class: 'btn btn-primary' %></td>
+        <% end %>
+      </tr>
+
+    <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
